@@ -4,12 +4,7 @@ using System.Text;
 
 namespace TheGame
 {
-    abstract class Monster : Character
+    class YourRegret : Monster
     {
-        public Monster() : base()
-        {
-
-        }
-        
     }
 }

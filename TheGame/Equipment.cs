@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TheGame
 {
-    class Equipment
+    abstract class Equipment : Item
     {
     }
 }
