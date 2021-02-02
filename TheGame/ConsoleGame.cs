@@ -83,8 +83,10 @@ namespace TheGame
 
         private void AskForMovement()
         {
+            
             ConsoleKey input = Console.ReadKey(true).Key;
 
+            // Add condition so player cannot move out from world
             switch (input)
             {
                 case ConsoleKey.UpArrow:
