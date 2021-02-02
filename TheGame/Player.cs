@@ -2,7 +2,7 @@
 {
     internal class Player : Character
     {
-        public Player() : base(100)
+        public Player() : base("Madame E Petit", 100)
         {
             X = 0;
             Y = 0;
