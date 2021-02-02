@@ -6,7 +6,7 @@ namespace TheGame
 {
     abstract class Monster : Character
     {
-        public Monster() : base()
+        public Monster(string name, int health) : base(name, health)
         {
 
         }
