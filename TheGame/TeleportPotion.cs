@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TheGame
 {
-    abstract class Equipment : Item
+    class TeleportPotion : Consumable
     {
-        public Equipment(string name) : base(name)
+        public TeleportPotion() : base("Teleport Potion")
         {
 
         }

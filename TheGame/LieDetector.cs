@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TheGame
 {
-    abstract class Equipment : Item
+    class LieDetector : Equipment
     {
-        public Equipment(string name) : base(name)
+        public LieDetector() : base("Lie Detector")
         {
 
         }

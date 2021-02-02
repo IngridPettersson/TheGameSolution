@@ -15,9 +15,10 @@ namespace TheGame
 
             do
             {
-            DisplayWorld();
+                DisplayWorld();
+                AskForMovement();
 
-            } while (player)
+            } while (player.Health > 0);
         }
 
         private void CreatePlayer()
@@ -37,10 +38,12 @@ namespace TheGame
                     world[x, y] = new Room();
 
                     int randomPercentage = random.Next(0, 100);
-                    if (randomPercentage < 10)
-                        world[x, y].Monster = new Monster();
-                    else if (randomPercentage < 20)
-                        world[x, y].Item = new Item();
+                    if (randomPercentage < 5)
+                        world[x, y].Monster = new YourRegret();
+                    else if (randomPercentage < 10)
+                        world[x, y].Monster = new YourDarkestDisgrace();
+                    else if (randomPercentage < 15)
+                        world[x,y].Item = 
                 }
             }
         }
@@ -64,6 +67,11 @@ namespace TheGame
                 }
                 Console.WriteLine();
             }
+        }
+
+        private void AskForMovement()
+        {
+            throw new NotImplementedException();
         }
 
     }

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TheGame
 {
-    abstract class Equipment : Item
+    class Sunglasses : Equipment
     {
-        public Equipment(string name) : base(name)
+        public Sunglasses() : base("Sunglasses")
         {
 
         }

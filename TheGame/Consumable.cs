@@ -6,5 +6,9 @@ namespace TheGame
 {
     abstract class Consumable : Item
     {
+        public Consumable(string name) : base(name)
+        {
+
+        }
     }
 }
