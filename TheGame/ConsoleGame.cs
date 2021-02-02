@@ -38,12 +38,20 @@ namespace TheGame
                     world[x, y] = new Room();
 
                     int randomPercentage = random.Next(0, 100);
+
                     if (randomPercentage < 5)
                         world[x, y].Monster = new YourRegret();
                     else if (randomPercentage < 10)
                         world[x, y].Monster = new YourDarkestDisgrace();
-                    else if (randomPercentage < 15)
-                        world[x,y].Item = 
+                    else if (randomPercentage < 13)
+                        world[x, y].Item = new Sunglasses();
+                    else if (randomPercentage < 16)
+                        world[x, y].Item = new LieDetector();
+                    else if (randomPercentage < 21)
+                        world[x, y].Item = new ThunderHoney();
+                    else if (randomPercentage < 25)
+                        world[x, y].Item = new TeleportPotion();
+
                 }
             }
         }
