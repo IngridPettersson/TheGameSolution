@@ -6,7 +6,8 @@ namespace TheGame
     {
         static void Main(string[] args)
         {
-            ConsoleGame consoleGame = new ConsoleGame();
+            ConsoleGame game = new ConsoleGame();
+            game.Play();
             
         }
     }

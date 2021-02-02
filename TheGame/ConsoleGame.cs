@@ -8,17 +8,21 @@ namespace TheGame
         Room[,] world;
         Room room;
         Random random = new Random();
-        public ConsoleGame()
+        public void Play()
         {
             CreatePlayer();
             CreateWorld();
 
             do
             {
+                Console.Clear();
+
                 DisplayWorld();
                 AskForMovement();
 
             } while (player.Health > 0);
+
+            GameOver();
         }
 
         private void CreatePlayer()
@@ -79,7 +83,29 @@ namespace TheGame
 
         private void AskForMovement()
         {
-            throw new NotImplementedException();
+            ConsoleKey input = Console.ReadKey(true).Key;
+
+            switch (input)
+            {
+                case ConsoleKey.UpArrow:
+                    player.Y--;
+                    break;
+                case ConsoleKey.DownArrow:
+                    player.Y++;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    player.X--;
+                    break;
+                case ConsoleKey.RightArrow:
+                    player.X++;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void GameOver()
+        {
         }
 
     }
