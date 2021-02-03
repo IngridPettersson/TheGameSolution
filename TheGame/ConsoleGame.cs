@@ -6,11 +6,12 @@ namespace TheGame
     {
         Player player;
         Room[,] world;
-        Room room;
         Random random = new Random();
         public void Play()
         {
+            GameIntro();
             CreatePlayer();
+            //WelcomePlayer();
             CreateWorld();
 
             do
@@ -23,6 +24,12 @@ namespace TheGame
             } while (player.Health > 0);
 
             GameOver();
+        }
+
+        private void GameIntro()
+        {
+            TextUtils.Animate("This is Dungeons Of Doom...".ToUpper(), 100);
+            TextUtils.Animate("...or is it...?", 300);
         }
 
         private void CreatePlayer()
@@ -69,11 +76,15 @@ namespace TheGame
                     Room room = world[x, y];
 
                     if (x == player.X && y == player.Y)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.Write("P");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                     else if (room.Monster != null)
-                        Console.Write("M");
+                        Console.Write(room.Monster.Name[0]);
                     else if (room.Item != null)
-                        Console.Write("I");
+                        Console.Write(room.Item.Name[0]);
                     else
                         Console.Write(".");
                 }
@@ -83,6 +94,8 @@ namespace TheGame
 
         private void AskForMovement()
         {
+            int newY;
+            int newX;
             
             ConsoleKey input = Console.ReadKey(true).Key;
 
@@ -104,6 +117,8 @@ namespace TheGame
                 default:
                     break;
             }
+            newY = player.Y;
+            newX = player.X;
         }
 
         private void GameOver()
