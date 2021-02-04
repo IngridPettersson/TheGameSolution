@@ -10,5 +10,13 @@ namespace TheGame
         {
 
         }
+
+        public override void GiveEffect(Player player)
+        {
+
+            player.X = 0;
+            player.Y = 0;
+            // Change coordinates for character
+        }
     }
 }

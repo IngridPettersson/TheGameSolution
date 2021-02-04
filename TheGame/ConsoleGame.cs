@@ -19,6 +19,7 @@ namespace TheGame
                 Console.Clear();
 
                 DisplayWorld();
+                DisplayStats();
                 AskForMovement();
                 CheckForEvent();
 
@@ -57,11 +58,11 @@ namespace TheGame
                         world[x, y].Monster = new YourDarkestDisgrace();
                     else if (randomPercentage < 13)
                         world[x, y].Item = new Sunglasses();
-                    else if (randomPercentage < 16)
+                    else if (randomPercentage < 18)
                         world[x, y].Item = new LieDetector();
-                    else if (randomPercentage < 21)
+                    else if (randomPercentage < 24)
                         world[x, y].Item = new ThunderHoney();
-                    else if (randomPercentage < 25)
+                    else if (randomPercentage < 30)
                         world[x, y].Item = new TeleportPotion();
 
                 }
@@ -91,6 +92,13 @@ namespace TheGame
                 }
                 Console.WriteLine();
             }
+        }
+
+        private void DisplayStats()
+        {
+            Console.WriteLine("\n_-_-_-PLAYER STATS-_-_-_\n");
+            Console.WriteLine($"Strength: {player.Strength}");
+            Console.WriteLine($"Health: {player.Health}");
         }
 
         private void AskForMovement()
@@ -134,7 +142,8 @@ namespace TheGame
         {
             if (world[player.X, player.Y].Item != null)
             {
-                Item
+                world[player.X, player.Y].Item.GiveEffect(player);
+                
             }
         }
 

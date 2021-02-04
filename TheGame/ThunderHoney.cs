@@ -11,8 +11,9 @@ namespace TheGame
 
         }
 
-        public override void GiveEffect()
+        public override void GiveEffect(Player player)
         {
+            player.Strength *= 2;
         }
     }
 }

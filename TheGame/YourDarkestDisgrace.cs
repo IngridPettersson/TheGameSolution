@@ -6,7 +6,7 @@ namespace TheGame
 {
     class YourDarkestDisgrace : Monster
     {
-        public YourDarkestDisgrace() : base("Your darkest Disgrace", 100)
+        public YourDarkestDisgrace() : base("Your darkest Disgrace", 100, 15)
         {
 
         }

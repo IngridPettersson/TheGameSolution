@@ -12,6 +12,6 @@ namespace TheGame
             Name = name;
         }
 
-        public abstract void GiveEffect();
+        public abstract void GiveEffect(Player player);
     }
 }

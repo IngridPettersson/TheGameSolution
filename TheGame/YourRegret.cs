@@ -6,7 +6,7 @@ namespace TheGame
 {
     class YourRegret : Monster
     {
-        public YourRegret() : base("Your own regrets", 100)
+        public YourRegret() : base("Your own regrets", 100, 3)
         {
 
         }
