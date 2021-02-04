@@ -9,7 +9,7 @@ namespace TheGame
         Random random = new Random();
         public void Play()
         {
-            GameIntro();
+            //GameIntro();
             CreatePlayer();
             //WelcomePlayer();
             CreateWorld();
@@ -20,6 +20,7 @@ namespace TheGame
 
                 DisplayWorld();
                 AskForMovement();
+                CheckForEvent();
 
             } while (player.Health > 0);
 
@@ -94,8 +95,9 @@ namespace TheGame
 
         private void AskForMovement()
         {
-            int newY;
-            int newX;
+            int newX = player.X;
+            int newY = player.Y;
+            bool isValidKey = true;
 
             ConsoleKey input = Console.ReadKey(true).Key;
 
@@ -103,30 +105,42 @@ namespace TheGame
             switch (input)
             {
                 case ConsoleKey.UpArrow:
-                    player.Y--;
+                    newY--;
                     break;
                 case ConsoleKey.DownArrow:
-                    player.Y++;
+                    newY++;
                     break;
                 case ConsoleKey.LeftArrow:
-                    player.X--;
+                    newX--;
                     break;
                 case ConsoleKey.RightArrow:
-                    player.X++;
+                    newX++;
                     break;
                 default:
+                    isValidKey = false;
                     break;
             }
 
-            if (player.Y <= world.GetLength(1) && player.Y >= 0)
-                newY = player.Y;
-            if (player.X <= world.GetLength(0) && player.X >= 0)
-                newX = player.X;
+            if (isValidKey &&
+                newX < world.GetLength(0) && newX >= 0 &&
+                newY < world.GetLength(1) && newY >= 0)
+            {
+                player.X = newX;
+                player.Y = newY;
+            }
+        }
 
+        private void CheckForEvent()
+        {
+            if (world[player.X, player.Y].Item != null)
+            {
+                Item
+            }
         }
 
         private void GameOver()
         {
+            Console.WriteLine("Game over...");
         }
 
     }

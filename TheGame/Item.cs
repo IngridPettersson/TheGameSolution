@@ -11,5 +11,7 @@ namespace TheGame
         {
             Name = name;
         }
+
+        public abstract void GiveEffect();
     }
 }
