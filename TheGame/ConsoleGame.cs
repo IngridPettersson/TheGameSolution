@@ -96,7 +96,7 @@ namespace TheGame
         {
             int newY;
             int newX;
-            
+
             ConsoleKey input = Console.ReadKey(true).Key;
 
             // Add condition so player cannot move out from world
@@ -117,8 +117,12 @@ namespace TheGame
                 default:
                     break;
             }
-            newY = player.Y;
-            newX = player.X;
+
+            if (player.Y <= world.GetLength(1) && player.Y >= 0)
+                newY = player.Y;
+            if (player.X <= world.GetLength(0) && player.X >= 0)
+                newX = player.X;
+
         }
 
         private void GameOver()
