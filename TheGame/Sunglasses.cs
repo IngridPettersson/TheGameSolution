@@ -13,7 +13,7 @@ namespace TheGame
 
         public override void GiveEffect(Player player)
         {
-            player.Strength -= player.Strength / 3;
+            player.Strength -= player.Strength / 4;
         }
     }
 }
