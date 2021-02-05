@@ -18,6 +18,6 @@ namespace TheGame
             Strength = strength;
         }
 
-        public abstract void Battle();
+        public abstract void Battle(Character attacker, Character defender);
     }
 }

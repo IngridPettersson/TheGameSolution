@@ -90,7 +90,7 @@ namespace TheGame
                     if (x == player.X && y == player.Y)
                     {
                         Console.ForegroundColor = ConsoleColor.Magenta;
-                        Console.Write("P");
+                        Console.Write(player.Name[0]);
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     else if (room.Monster != null)
@@ -100,7 +100,7 @@ namespace TheGame
                     else if (x == boss.X && y == boss.Y)
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("B");
+                        Console.Write(boss.Name[0]);
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
@@ -172,9 +172,9 @@ namespace TheGame
                 Thread.Sleep(2200);
                 currentRoom.Item = null;
             }
-            if (world[player.X, player.Y].Monster != null)
+            if (currentRoom.Monster != null)
             {
-                Battle();
+                currentRoom.Character.Battle(player, currentRoom.Monster);
             }
         }
 

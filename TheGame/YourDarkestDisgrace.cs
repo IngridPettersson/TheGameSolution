@@ -10,5 +10,9 @@ namespace TheGame
         {
 
         }
+
+        public override void Battle(Character attacker, Character defender)
+        {
+        }
     }
 }
