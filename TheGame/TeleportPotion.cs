@@ -16,7 +16,7 @@ namespace TheGame
 
             player.X = 0;
             player.Y = 0;
-            // Change coordinates for character
+            player.Health -= 10;
         }
     }
 }

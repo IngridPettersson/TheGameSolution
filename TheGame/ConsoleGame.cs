@@ -5,6 +5,7 @@ namespace TheGame
     internal class ConsoleGame
     {
         Player player;
+        Boss boss;
         Room[,] world;
         Random random = new Random();
         public void Play()
@@ -13,6 +14,7 @@ namespace TheGame
             CreatePlayer();
             //WelcomePlayer();
             CreateWorld();
+            CreateBoss();
 
             do
             {
@@ -26,6 +28,11 @@ namespace TheGame
             } while (player.Health > 0);
 
             GameOver();
+        }
+
+        private void CreateBoss()
+        {
+            boss = new Boss(world.GetLength(0) -1, world.GetLength(1) - 1);
         }
 
         private void GameIntro()
@@ -43,13 +50,14 @@ namespace TheGame
         private void CreateWorld()
         {
             world = new Room[20, 5];
-
+            
             for (int y = 0; y < world.GetLength(1); y++)
             {
                 for (int x = 0; x < world.GetLength(0); x++)
                 {
                     world[x, y] = new Room();
-
+                    if (!(y == world.GetLength(1) - 1 && x == world.GetLength(0) - 1))
+                    {
                     int randomPercentage = random.Next(0, 100);
 
                     if (randomPercentage < 5)
@@ -64,7 +72,7 @@ namespace TheGame
                         world[x, y].Item = new ThunderHoney();
                     else if (randomPercentage < 30)
                         world[x, y].Item = new TeleportPotion();
-
+                    }
                 }
             }
         }
@@ -87,6 +95,12 @@ namespace TheGame
                         Console.Write(room.Monster.Name[0]);
                     else if (room.Item != null)
                         Console.Write(room.Item.Name[0]);
+                    else if (x == boss.X && y == boss.Y)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("B");
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                     else
                         Console.Write(".");
                 }
@@ -96,7 +110,7 @@ namespace TheGame
 
         private void DisplayStats()
         {
-            Console.WriteLine("\n_-_-_-PLAYER STATS-_-_-_\n");
+            Console.WriteLine("\n-_-_-_-PLAYER STATS-_-_-_-\n");
             Console.WriteLine($"Strength: {player.Strength}");
             Console.WriteLine($"Health: {player.Health}");
         }
@@ -143,7 +157,8 @@ namespace TheGame
             if (world[player.X, player.Y].Item != null)
             {
                 world[player.X, player.Y].Item.GiveEffect(player);
-                
+                Console.Clear();
+                world[player.X, player.Y].Item.DisplayEffect();
             }
         }
 
