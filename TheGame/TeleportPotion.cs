@@ -18,5 +18,10 @@ namespace TheGame
             player.Y = 0;
             player.Health -= 10;
         }
+
+        public override string DisplayEffect()
+        {
+            return $"A Teleport potion was collected and "
+        }
     }
 }

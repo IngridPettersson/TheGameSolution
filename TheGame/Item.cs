@@ -14,6 +14,6 @@ namespace TheGame
 
         public abstract void GiveEffect(Player player);
 
-        public virtual void Display
+        public abstract string DisplayEffect();
     }
 }

@@ -156,9 +156,9 @@ namespace TheGame
         {
             if (world[player.X, player.Y].Item != null)
             {
-                world[player.X, player.Y].Item.GiveEffect(player);
+                string effectToDisplay = world[player.X, player.Y].Item.GiveEffect(player);
                 Console.Clear();
-                world[player.X, player.Y].Item.DisplayEffect();
+                Console.WriteLine(effectToDisplay);
             }
         }
 
