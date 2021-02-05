@@ -18,7 +18,7 @@ namespace TheGame
             player.Strength += strengtGained;
             player.Health -= healthLost;
 
-            return $"You collected item: {Name}\nEffect: -{healthLost} health points\t +{strengtGained} in strength";
+            return $"Collected item: {Name}\nEffect: -{healthLost} health points\n\t+{strengtGained} in strength";
         }
     }
 }

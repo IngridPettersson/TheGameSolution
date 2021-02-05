@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace TheGame
 {
@@ -56,7 +57,8 @@ namespace TheGame
                 for (int x = 0; x < world.GetLength(0); x++)
                 {
                     world[x, y] = new Room();
-                    if (!(y == world.GetLength(1) - 1 && x == world.GetLength(0) - 1))
+                    if (!(y == world.GetLength(1) - 1 && x == world.GetLength(0) - 1) &&
+                        !(y == player.Y && x == player.X))
                     {
                     int randomPercentage = random.Next(0, 100);
 
@@ -110,9 +112,13 @@ namespace TheGame
 
         private void DisplayStats()
         {
-            Console.WriteLine("\n-_-_-_-PLAYER STATS-_-_-_-\n");
-            Console.WriteLine($"Strength: {player.Strength}");
-            Console.WriteLine($"Health: {player.Health}");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("\n\t\t\t\t\t--------------------------------");
+            Console.WriteLine("\t\t\t\t\t|          PLAYER STATS        |");
+            Console.WriteLine("\t\t\t\t\t--------------------------------\n");
+            Console.WriteLine($"\t\t\t\t\tSTRENGTH:\t\t{player.Strength}\n");
+            Console.WriteLine($"\t\t\t\t\tHEALTH:\t\t\t{player.Health}");
         }
 
         private void AskForMovement()
@@ -154,11 +160,21 @@ namespace TheGame
 
         private void CheckForEvent()
         {
-            if (world[player.X, player.Y].Item != null)
+            Room currentRoom = world[player.X, player.Y];
+            if (currentRoom.Item != null)
             {
-                string effectToDisplay = world[player.X, player.Y].Item.GiveEffect(player);
+                string effectToDisplay = currentRoom.Item.GiveEffect(player);
                 Console.Clear();
-                Console.WriteLine(effectToDisplay);
+                TextUtils.Animate(effectToDisplay, 50);
+                Thread.Sleep(800);
+                Console.Clear();
+                DisplayStats();
+                Thread.Sleep(2200);
+                currentRoom.Item = null;
+            }
+            if (world[player.X, player.Y].Monster != null)
+            {
+                Battle();
             }
         }
 

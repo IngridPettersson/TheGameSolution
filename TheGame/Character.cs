@@ -17,5 +17,7 @@ namespace TheGame
             Health = health;
             Strength = strength;
         }
+
+        public abstract void Battle();
     }
 }

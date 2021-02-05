@@ -16,7 +16,7 @@ namespace TheGame
             int strengthGained = player.Strength / 3;
             player.Strength += strengthGained;
 
-            return $"You collected item: {Name}\nEffect: +{strengthGained} in strength";
+            return $"Collected item: {Name}\nEffect: +{strengthGained} in strength";
 
         }
     }

@@ -18,7 +18,7 @@ namespace TheGame
             player.Y = 0;
             player.Health -= healthLost;
 
-            return $"You collected item: {Name}\nEffect: -{healthLost} health points";
+            return $"Collected item: {Name}\nEffect: -{healthLost} health points\n\tTeleported to 0.0";
         }
     }
 }

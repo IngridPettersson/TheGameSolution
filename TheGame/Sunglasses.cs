@@ -11,9 +11,15 @@ namespace TheGame
 
         }
 
-        public override void GiveEffect(Player player)
+        public override string GiveEffect(Player player)
         {
-            player.Strength -= player.Strength / 4;
+            int healthLost = 15;
+            int strengthGained = player.Strength / 4;
+            player.Health -= healthLost;
+            player.Strength += strengthGained;
+
+            return $"Collected item: {Name}\nEffect: -{healthLost} health points\n\t+{strengthGained} in strength";
+
         }
     }
 }
