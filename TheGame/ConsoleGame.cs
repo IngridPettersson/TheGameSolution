@@ -174,7 +174,7 @@ namespace TheGame
             }
             if (currentRoom.Monster != null)
             {
-                currentRoom.Character.Battle(player, currentRoom.Monster);
+                currentRoom.Monster.Battle(player, currentRoom.Monster);
             }
         }
 

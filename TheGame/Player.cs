@@ -13,6 +13,7 @@
 
         public override void Battle(Character attacker, Character defender)
         {
+            defender.Health -= attacker.Strength;
         }
     }
 }
