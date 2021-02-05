@@ -11,17 +11,14 @@ namespace TheGame
 
         }
 
-        public override void GiveEffect(Player player)
+        public override string GiveEffect(Player player)
         {
-
+            int healthLost = 10;
             player.X = 0;
             player.Y = 0;
-            player.Health -= 10;
-        }
+            player.Health -= healthLost;
 
-        public override string DisplayEffect()
-        {
-            return $"A Teleport potion was collected and "
+            return $"You collected item: {Name}\nEffect: -{healthLost} health points";
         }
     }
 }

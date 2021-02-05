@@ -11,9 +11,13 @@ namespace TheGame
 
         }
 
-        public override void GiveEffect(Player player)
+        public override string GiveEffect(Player player)
         {
-            player.Strength += player.Strength / 5;
+            int strengthGained = player.Strength / 3;
+            player.Strength += strengthGained;
+
+            return $"You collected item: {Name}\nEffect: +{strengthGained} in strength";
+
         }
     }
 }
